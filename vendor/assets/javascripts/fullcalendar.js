@@ -6022,8 +6022,10 @@ DayGrid.mixin({
 				(htmlEscape(event.title || '') || '&nbsp;') + // we always want one line of height
 			'</span>';
 
-		userImageHtml = '<span class="fc-userimage"><img src="' + event.userImage + '" ></span>';
-
+    userImageHtml = ''
+    if (event.userImage !== undefined && event.userImage !== null) {
+			userImageHtml = '<span class="fc-userimage"><img src="' + event.userImage + '" ></span>';
+		}
 
 		return '<a class="' + classes.join(' ') + '"' +
 				(event.url ?
